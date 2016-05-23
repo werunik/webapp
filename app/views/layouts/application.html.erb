@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!--
+     _____          _       _     _                ______                  _                        _       _
+  / ____|        | |     | |   | |              |  ____|                | |                      | |     | |
+ | |  __    ___  | |_    | |_  | |__     ___    | |__     _   _    ___  | | __     ___    _   _  | |_    | |
+ | | |_ |  / _ \ | __|   | __| | '_ \   / _ \   |  __|   | | | |  / __| | |/ /    / _ \  | | | | | __|   | |
+ | |__| | |  __/ | |_    | |_  | | | | |  __/   | |      | |_| | | (__  |   <    | (_) | | |_| | | |_    |_|
+  \_____|  \___|  \__|    \__| |_| |_|  \___|   |_|       \__,_|  \___| |_|\_\    \___/   \__,_|  \__|   (_)
+
+  -->
   <title>Werunik</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render "partials/header" %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+  <%= render "partials/footer" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

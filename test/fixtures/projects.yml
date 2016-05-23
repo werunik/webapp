@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_name: MyString
+  budget: MyString
+  start: 2016-05-22 17:44:43
+  type: 
+  description: MyText
+  owner_name: MyString
+  phone: MyString
+  email: MyString
+
+two:
+  project_name: MyString
+  budget: MyString
+  start: 2016-05-22 17:44:43
+  type: 
+  description: MyText
+  owner_name: MyString
+  phone: MyString
+  email: MyString
