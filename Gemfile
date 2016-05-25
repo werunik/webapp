@@ -9,6 +9,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'simple_form'
+gem 'sidekiq'
+gem 'sidekiq-statistic'
+gem 'sinatra'
+gem 'sparkpost', github: 'SparkPost/ruby-sparkpost'
+gem 'sparkpost_rails'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'

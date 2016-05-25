@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
     end
     @project.save
     respond_with(@project)
+    ProjectCreatedWorker.perform_async(@project.id)
   end
 
   def update
