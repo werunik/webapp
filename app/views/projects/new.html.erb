@@ -1,3 +1,6 @@
-<%= render "form" %>
-
+<% if current_user.needs_engagement? %>
+  <%= link_to 'You Must Register!', new_user_registration_path %>
+<% else %>
+  <%= render "form" %>
+<% end %>
 <%= link_to 'Back', projects_path %>

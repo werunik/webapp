@@ -10,6 +10,10 @@ gem 'turbolinks'
 gem 'devise'
 gem 'simple_form'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end
+
 group :development, :test do
   gem 'byebug'
 end
