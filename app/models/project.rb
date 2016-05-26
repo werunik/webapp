@@ -4,10 +4,15 @@ class Project < ActiveRecord::Base
             presence: true
   validates :project_type, presence: true,
             inclusion: { in: %w(Website Backend Frontend UI UX Design Other)}
-  def email_project
-    #recipients = []
-    #recipients << Rails.application.secrets.support_emails
-    #recipients << Rails.application.secrets.sales_emails if category == 'quote'
+
+  after_commit :notification_project_received, on: :create
+
+  def notification_project_received
+    Project::NotifyClientProjectReceivedWorker.perform_in(1.minutes, id)
+    Project::NotifySalesWorker.perform_async(id)
+  end
+
+  def project_payload
     email_information = {
       #project_owner: user.email,
       project_id: id,
