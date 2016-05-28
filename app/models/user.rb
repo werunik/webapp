@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   def needs_engagement?
     projects = Project.where(soft_token: self.soft_token)
-    if self.soft_user? && projects.count >= 2
+    if self.soft_user? && projects.count >= 1
       true
     end
   end
