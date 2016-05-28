@@ -7,7 +7,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+
+#Custom
 gem 'devise'
+gem 'hubspot-ruby'
 gem 'simple_form'
 gem 'sidekiq'
 gem 'sidekiq-statistic'
