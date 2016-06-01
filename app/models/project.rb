@@ -4,7 +4,10 @@ class Project < ActiveRecord::Base
             presence: true
   validates :project_type, presence: true,
             inclusion: { in: %w(Website Backend Frontend UI UX Design Other)}
-
+  validates :budget, presence: true,
+            inclusion: { in: ["$5k - $10k", "$10k - $20k", "$20k - $50k", "$50k+", "I don't know"]}
+  #validates :start, presence: true,
+  #          inclusion: { in: %w("Now!" "1week" "2weeks" "1month" "2months")}
   after_commit :notification_project_received, on: :create
 
   def notification_project_received

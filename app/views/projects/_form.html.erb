@@ -1,62 +1,35 @@
-<%= form_for @project do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@project.errors.count, "error") %> prohibited
-        this project from being saved:
-      </h2>
-      <ul>
-        <% @project.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :budget %><br>
-    <%= f.text_field :budget %>
-  </p>
-
-  <p>
-    <%= f.label :start %><br>
-    <%= f.text_field :start %>
-  </p>
-
-  <p>
-    <%= f.label :project_type %><br>
-    <%= f.text_field :project_type %>
-  </p>
-
-  <p>
-    <%= f.label :owner_name %><br>
-    <%= f.text_field :owner_name %>
-  </p>
-
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+<%= simple_form_for(@project, html: { class: 'form-vertical' }) do |f| %>
+  <%= f.input :owner_name,
+              label: "What is your fucking name?",
+              error: "Write your fucking name or get the fuck out!",
+              autofocus: true %>
+  <%= f.input :email,
+              label: "What is your fucking email?",
+              error: "How the fuck we get in touch with you if you don't write your fucking email!" %>
+  <%= f.input :phone,
+              label: "Your phone? Fucker!",
+              error: "How the fuck we call in you the muddle of the night if you don't write your fucking phone!" %>
+  <%= f.input :name,
+              label: "What the fuck is your project called?",
+              error: "" %>
+  <%= f.input :project_type,
+              collection: ["Backend" , "Frontend" , "Website" , "Design" , "UX/UI" , "iOS" , "Android" , "Other"],
+              prompt: "Choose what you fucking want",
+              error: "Really! How the fuck we will know what you want?" %>
+  <%= f.input :budget,
+              collection: ["$5k - $10k" , "$10k - $20k" , "$20k - $50k" , "$50k+" , "I don't know"],
+              prompt: "Your fucking budget",
+              error: "" %>
+  <%= f.input :start,
+              collection: ["Now!" , "1week" , "2weeks" , "1month" , "2months"],
+              prompt: "Choose what you fucking want",
+              error: "Really! How the fuck we will know what you want?" %>
+  <%= f.input :description,
+              as: :text,
+              label: "Description",
+              error: "",
+              placeholder: "Please provide as much detail as possible such as error logs, Xcode version, etc.",
+              input_html: {rows:  10} %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "Submit your fucking project", class: "btn btn-block btn-success" %>
 <% end %>

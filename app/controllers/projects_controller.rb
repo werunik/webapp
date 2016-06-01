@@ -28,6 +28,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @user.soft_user?
       @project.soft_token = @user.soft_token
+    elsif current_user
+      @project.user = current_user
     end
     @project.save
     respond_with(@project)
